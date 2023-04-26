@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+  
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="btn">
+
+    <button >this is logo</button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div class="search">
+    <input type="text">
+  </div>
+  <div class="btnsearch">
+    <button>search</button>
+  </div>
+  <div class="pruduct">
+    <button>first prudus</button>
+  </div>
 </template>
 
 <style scoped>
@@ -27,4 +31,27 @@ import HelloWorld from './components/HelloWorld.vue'
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
+.btn{
+  position: absolute;
+  top: 5%;
+  right: 2%;
+}
+
+.search{
+  position: absolute;
+  top: 6%;
+  right: 20%;
+}
+.btnsearch{
+  position: absolute;
+  top: 5%;
+  right: 45%;
+}
+.pruduct{
+  position: absolute;
+  right: 2%;
+  top: 15%;
+}
+
+
 </style>
