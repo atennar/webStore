@@ -1,5 +1,7 @@
 <script setup lang="ts">
-  
+  const loger = () =>{
+    console.log("done")
+  }
 </script>
 
 <template>
@@ -8,14 +10,14 @@
     <button >this is logo</button>
   </div>
   <div class="search">
-    <input type="text">
+    <input type="text" id="value">
   </div>
   <div class="btnsearch">
-    <button>search</button>
+    <button @click="loger">search</button>
   </div>
-  <div class="pruduct">
-    <button>first prudus</button>
-  </div>
+  
+    <button class="pruduct">first prudus</button>
+
 </template>
 
 <style scoped>
@@ -48,9 +50,10 @@
   right: 45%;
 }
 .pruduct{
-  position: absolute;
   right: 2%;
   top: 15%;
+  width: 500px;
+  background-color: red;
 }
 
 
