@@ -1,10 +1,12 @@
 <script setup lang="ts">
-  
+  const printcosole =() =>{
+    console.log('we will add code for show pprice and other property for tomato');
+  }
 </script>
 
 <template>
   <img class="banner" src="./banner.png" alt="cant load">
-  <div class="tomato">
+  <div @click="printcosole" class="tomato">
     <img src="./tomato.jpg" alt="cant load">
     <h1>tomato</h1>
     <h2>30.000 T</h2>
