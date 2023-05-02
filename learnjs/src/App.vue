@@ -1,6 +1,7 @@
 <script setup lang="ts">
   const printcosole =() =>{
-    console.log('we will add code for show pprice and other property for tomato');
+    console.log('we will add codes for show pprice and other property for tomato');
+    document.getElementById("title").innerHTML ="گوجه"
   }
 </script>
 
@@ -8,8 +9,8 @@
   <img class="banner" src="./banner.png" alt="cant load">
   <div @click="printcosole" class="tomato">
     <img src="./tomato.jpg" alt="cant load">
-    <h1>tomato</h1>
-    <h2>30.000 T</h2>
+    <h1 id="title">tomato</h1>
+    <h2 >30.000 T</h2>
   </div>
 </template>
 
