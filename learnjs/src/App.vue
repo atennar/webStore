@@ -28,4 +28,10 @@
   
 }
 
+.tomato:hover{
+  border-radius: 20px;
+  scale: 110%;
+  transition: 0.8s;
+}
+
 </style>
