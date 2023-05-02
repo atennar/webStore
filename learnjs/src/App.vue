@@ -1,8 +1,9 @@
 <script setup lang="ts">
+  // document.getElementById("more_tomato").style.display = 'block';
   const printcosole =() =>{
     console.log('we will add codes for show pprice and other property for tomato');
     document.getElementById("title").innerHTML ="گوجه";
-    document.getElementById("tomato").style.display = 'none';
+    document.getElementById("more_tomato").style.visibility = 'visible';
   }
 </script>
 
@@ -12,6 +13,14 @@
     <img src="./tomato.jpg" alt="cant load">
     <h1 id="title">tomato</h1>
     <h2 >30.000 T</h2>
+  </div>
+
+  <div class="more_tomato" id="more_tomato">
+    <img src="./tomato.jpg" alt="cant load">
+    <h1>tomato</h1>
+    <h2>description:</h2>
+    <h6>The tomato fruit is globular or ovoid. Botanically, the fruit exhibits all of the common characteristics of berries; a simple fleshy fruit that encloses its seed in the pulp. The outer skin is a thin and fleshy tissue that comprises the remainder of the fruit wall as well as the placenta</h6>
+    <h2>price : 30.000 T</h2>
   </div>
 </template>
 
@@ -37,6 +46,16 @@
   border-radius: 20px;
   scale: 110%;
   transition: 0.8s;
+}
+
+.more_tomato{
+  position: absolute;
+  text-align: left;
+  border: 5px dashed green;
+  padding: 20px;
+  left: 45%;
+  background-color: aqua;
+  visibility: hidden;
 }
 
 </style>
