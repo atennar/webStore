@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>vue 3 Course</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3.0.2"></script> -->
+    <style>
+      .box{
+        padding: 100px 0;
+        width: 500px;
+        text-align: center;
+        background:#b4a8a8;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- div tavasot vue modiriat mishe -->
+    <!-- div#app  + tab -->
+    <div id="app">
+      <div v-if=showBooks>
+        <p>{{title}} - {{author}} - {{age}}</p>
+      </div>
+      <button @click="changeShowBook">
+        <span v-if=showBooks>hide book</span>
+        <!-- <span v-if=!showBooks>show book</span> -->
+        <!-- or -->
+        <span v-else>show book</span> 
+
+      </button>
+      <div v-show=showBooks>showing....</div>
+      <br>
+      <button v-on:click = "age++">Increase</button>
+      <button v-on:click = "age--">decrease</button>
+      <br>
+      <hr>
+      <br>
+      <div class="box" @mouseover="handleEvent">mouse over</div>
+      <div class="box" ></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <!-- @ = v-on -->
+      <div @click="changetitle('boostan')">change title</div>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
