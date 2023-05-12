@@ -9,6 +9,10 @@
         <p>{{title}} is {{price}} from {{country}} </p>
         <button v-on:click ="price++">increase</button>
         <button v-on:click ="price--">decrease</button>
+
+        <div @click ="Titlechange('lap top')">
+            change tiltle
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
