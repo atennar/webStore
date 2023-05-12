@@ -5,6 +5,11 @@
     <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
 </head>
 <body>
+    <div id="app" >
+        <p>{{title}} is {{price}} from {{country}} </p>
+        <button v-on:click ="price++">increase</button>
+        <button v-on:click ="price--">decrease</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
