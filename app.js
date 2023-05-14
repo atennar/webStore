@@ -7,10 +7,10 @@ const app = Vue.createApp({
             price : 45,
             country : 'iran',
             names:[
-                {name:'ali',family:'baghery',age:13},
-                {name:'reza',family:'zare',age:13},
-                {name:'mohammad',family:'fallah',age:13},
-                {name:'amir',family:'nejaty',age:13}
+                {name:'tomato',property:'it is good for your body',price:20000},
+                {name:'benana',property:'it is good for your body',price:30000},
+                {name:'orange',property:'it is good for your body',price:40000},
+                {name:'watermelone',property:'it is good for your body',price:50000}
             ]
         }
     },

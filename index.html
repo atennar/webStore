@@ -13,6 +13,17 @@
             display: inline-block;
             text-align: center;
         } */
+
+        .pruduct{
+            text-align: center;
+            margin: 15px;
+            padding: 10px 10px;
+            width: 300px;
+            background-color: plum;
+            display: inline-block;
+            border: 3px solid orchid;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -27,9 +38,13 @@
             </div> -->
 
             <ul>
-                <li v-for="name in names">
-                    <p><h3>{{name.name}} {{name.family}} is {{name.age}}</h3></p>
-                </li>
+                <div class="pruduct" v-for="name in names">
+                    <img src="download.jpg" alt="cant load this image!">
+                    <h1> {{name.name}}</h1>
+                    <h4>short property: {{name.property}} </h4>
+                    <h3>price : {{name.price}} T </h3>
+                    <button style="background-color: cyan; border-radius: 10px; font-size: 20px;">buy</button>
+                </div>
             </ul>
         </div>
         
