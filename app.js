@@ -6,6 +6,7 @@ const app = Vue.createApp({
             title : "cell phone",
             price : 45,
             country : 'iran',
+            books:['ali','mohammad','reza','amir']
         }
     },
 //this is method property that we can difine a function
