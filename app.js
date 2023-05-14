@@ -7,10 +7,10 @@ const app = Vue.createApp({
             price : 45,
             country : 'iran',
             names:[
-                {name:'tomato',property:'it is good for your body',price:20000},
-                {name:'benana',property:'it is good for your body',price:30000},
-                {name:'orange',property:'it is good for your body',price:40000},
-                {name:'watermelone',property:'it is good for your body',price:50000}
+                {name:'tomato',property:'it is good for your body',price:20000 , count:0 ,hasbuy:false},
+                {name:'benana',property:'it is good for your body',price:30000 ,count:0 ,hasbuy:false},
+                {name:'orange',property:'it is good for your body',price:40000 ,count:0 ,hasbuy:false},
+                {name:'watermelone',property:'it is good for your body',price:50000 ,count:0 ,hasbuy:false}
             ]
         }
     },
@@ -30,7 +30,15 @@ const app = Vue.createApp({
 
         mouseevent(e){
             this.X = e.offsetX
+        },
+
+        buy(fruit) {
+            fruit.count++
+            fruit.hasbuy = true
+            return fruit
         }
+
+
     }
 })
 

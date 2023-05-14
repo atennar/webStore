@@ -24,11 +24,22 @@
             border: 3px solid orchid;
             border-radius: 10px;
         }
+
+        .counter{
+            text-align: center;
+            margin: 10px;
+            background-color: azure;
+            width: 50px;
+            position: relative;
+            left: 115px;
+            border-radius: 5px;
+        }
+       
     </style>
 </head>
 <body>
     <div id="app" >
-        <div v-show=show>
+        <div v-show=show >
             <!-- <p>{{title}} is {{price}} from {{country}} </p>
             <button v-on:click ="price++ ">increase</button>
             <button v-on:click ="price--">decrease</button>
@@ -43,7 +54,10 @@
                     <h1> {{name.name}}</h1>
                     <h4>short property: {{name.property}} </h4>
                     <h3>price : {{name.price}} T </h3>
-                    <button style="background-color: cyan; border-radius: 10px; font-size: 20px;">buy</button>
+                    <div class="counter" v-if=name.hasbuy>
+                        <p>{{name.count}}</p>
+                    </div>
+                    <button style="background-color: cyan; border-radius: 10px; font-size: 20px;" @click="name = buy(name) ">buy</button>
                 </div>
             </ul>
         </div>
