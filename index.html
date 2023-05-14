@@ -6,7 +6,7 @@
 </head>
 <body>
     <div id="app" >
-        <div v-if=show>
+        <div v-show=show>
             <p>{{title}} is {{price}} from {{country}} </p>
             <button v-on:click ="price++ ">increase</button>
             <button v-on:click ="price--">decrease</button>
