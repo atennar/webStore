@@ -3,6 +3,17 @@
 <head>
     <title>start vue </title>
     <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
+
+    <style>
+        .box{
+            background-color: aliceblue;
+            padding: 100px 0px;
+            width: 400px;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app" >
@@ -20,6 +31,16 @@
             <span v-if=show>hide this </span>
             <span v-if=!show>show this </span>
         </button>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="box" @mousemove="mousehandle">mouse move </div>
+        <div class="box" @mouseover="mousehandle">mouse over</div>
+        <div class="box" @dblclick="mousehandle">mouse duble click </div>
+        <div class="box" @mouseleave="mousehandle">mose leave</div>
+
     </div>
     <script src="app.js"></script>
 </body>

@@ -15,6 +15,10 @@ const app = Vue.createApp({
 
         showmethod (){
             this.show = !this.show
+        },
+
+        mousehandle() {
+            console.log('this even done')
         }
     }
 })
