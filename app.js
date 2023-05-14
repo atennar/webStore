@@ -19,6 +19,10 @@ const app = Vue.createApp({
 
         mousehandle() {
             console.log('this even done')
+        },
+
+        mouseevent(e){
+            console.log(e)
         }
     }
 })
