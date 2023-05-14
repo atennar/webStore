@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data(){
         return{
+            X:0,
             show :true,
             title : "cell phone",
             price : 45,
@@ -22,7 +23,7 @@ const app = Vue.createApp({
         },
 
         mouseevent(e){
-            console.log(e)
+            this.X = e.offsetX
         }
     }
 })
