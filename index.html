@@ -39,43 +39,19 @@
 </head>
 <body>
     <div id="app" >
-        <div v-show=show >
-            <!-- <p>{{title}} is {{price}} from {{country}} </p>
-            <button v-on:click ="price++ ">increase</button>
-            <button v-on:click ="price--">decrease</button>
-
-            <div @click ="Titlechange('lap top')">
-                change tiltle
-            </div> -->
-
+        <div  v-show=show >
             <ul>
                 <div class="pruduct" v-for="name in names">
-                    <img src="download.jpg" alt="cant load this image!">
+                    <img v-bind:src="name.image" alt="cant load this image! " style="width: 300px;">
                     <h1> {{name.name}}</h1>
                     <h4>short property: {{name.property}} </h4>
                     <h3>price : {{name.price}} T </h3>
-                    <div class="counter" v-if=name.hasbuy>
-                        <p>{{name.count}}</p>
-                    </div>
-                    <button style="background-color: cyan; border-radius: 10px; font-size: 20px;" @click="name = buy(name) ">buy</button>
                 </div>
             </ul>
         </div>
         
-        <button v-on:click="showmethod">
-            <span v-if=show>hide this </span>
-            <span v-if=!show>show this </span>
-        </button>
-<!-- 
-        <br>
-        <hr>
-        <br>
 
-        <div class="box" @mousemove="mouseevent">{{X}}</div>
-        <div class="box" @mouseover="mousehandle">mouse over</div>
-        <div class="box" @dblclick="mousehandle">mouse duble click </div>
-        <div class="box" @mouseleave="mousehandle">mose leave</div> -->
-
+        
     </div>
     <script src="app.js"></script>
 </body>
