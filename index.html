@@ -34,6 +34,7 @@
             display: inline-block;
             border: 3px solid rgb(6, 1, 6);
             border-radius: 10px;
+            color: aqua;
         }
        
     </style>
@@ -42,13 +43,14 @@
     <div id="app" >
         <div  v-show=show >
             <ul>
-                <div class="pruduct" :class="{fav : name.isfav}" v-for="name in names">
+                <div @click="name = addfav(name)" class="pruduct" :class="{fav : name.isfav}" v-for="name in names">
                     <img v-bind:src="name.image" alt="cant load this image! " style="width: 300px;">
                     <h1> {{name.name}}</h1>
                     <h4>short property: {{name.property}} </h4>
                     <h3>price : {{name.price}} T </h3>
                 </div>
             </ul>
+            
         </div>
         
 
