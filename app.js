@@ -9,8 +9,8 @@ const app = Vue.createApp({
             country : 'iran',
             names:[
                 {name:'tomato',property:'it is good for your body',price:20000 ,image:'tomato.jpg' ,isfav:false , id:0},
-                {name:'benana',property:'it is good for your body',price:30000 ,image:'benana.jpg' ,isfav:true , id:1},
-                {name:'orange',property:'it is good for your body',price:40000 , image:'orange.jpg' ,isfav:true ,id:2},
+                {name:'benana',property:'it is good for your body',price:30000 ,image:'benana.jpg' ,isfav:false , id:1},
+                {name:'orange',property:'it is good for your body',price:40000 , image:'orange.jpg' ,isfav:false ,id:2},
                 {name:'watermelone',property:'it is good for your body',price:50000 , image:'watermelone.jpg' ,isfav:false , id:3 }
             ]
         }
@@ -19,12 +19,15 @@ const app = Vue.createApp({
     methods : {
         addfav(name) {
             name.isfav = !name.isfav
-            return{
-                name
-            }
         }
 
 
+    },
+
+    computed : {
+        filterBooks(){
+            return this.names.filter(book => book.isfav === false)
+        }
     }
 })
 
