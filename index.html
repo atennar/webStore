@@ -25,14 +25,15 @@
             border-radius: 10px;
         }
 
-        .counter{
+        .fav{
             text-align: center;
-            margin: 10px;
-            background-color: azure;
-            width: 50px;
-            position: relative;
-            left: 115px;
-            border-radius: 5px;
+            margin: 15px;
+            padding: 10px 10px;
+            width: 300px;
+            background-color: rgb(70, 5, 70);
+            display: inline-block;
+            border: 3px solid rgb(6, 1, 6);
+            border-radius: 10px;
         }
        
     </style>
@@ -41,7 +42,7 @@
     <div id="app" >
         <div  v-show=show >
             <ul>
-                <div class="pruduct" v-for="name in names">
+                <div class="pruduct" :class="{fav : name.isfav}" v-for="name in names">
                     <img v-bind:src="name.image" alt="cant load this image! " style="width: 300px;">
                     <h1> {{name.name}}</h1>
                     <h4>short property: {{name.property}} </h4>
