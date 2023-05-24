@@ -1,7 +1,5 @@
 <template>
-  <ul >
-    <li v-for="name in 11" :key="name"><Modal /></li>
-  </ul>
+  <Modal />
 </template>
 
 <script>
@@ -21,7 +19,5 @@ export default ({
 </script>
 
 <style>
-li{
-  display: inline-block;
-}
+
 </style>
