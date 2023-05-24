@@ -1,5 +1,7 @@
 <template>
-  <Modal />
+  <ul >
+    <li v-for="name in 11" :key="name"><Modal /></li>
+  </ul>
 </template>
 
 <script>
@@ -9,8 +11,7 @@ export default ({
   components : {Modal},
   data(){
     return{
-      title : 'for your name',
-      names :['ali','mohammad']
+      names : ['ali','reza','mohammad' , 'ahmad' , ]
     }
   },
 
@@ -20,8 +21,7 @@ export default ({
 </script>
 
 <style>
-h1{
-  color: aqua;
-  text-align: center;
+li{
+  display: inline-block;
 }
 </style>

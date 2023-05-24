@@ -1,23 +1,32 @@
 <template>
-    <div class="align">
-
-    <div class="back">
-        <p>this is a test for import an component</p>
+    <div class="produs">
+        <img src="./image/fruit.png" alt="cant load" class="image-produs">
+        <h1>orange</h1>
+        <h2>price : 25.000 T</h2>
+        <button class="btn-produs">buy</button>
     </div>
-    </div>
-    
 </template>
 
 
 <style >
-.back{
-    background-color: aliceblue;
-    border: 2px solid lightblue;
-    width: 30%;
-    height: 30%;
+.produs{
+    text-align: center;
+    border: 5px solid rgb(234, 110, 110);
+    background-color: rgb(247, 185, 91);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
 }
 
-.align{
-    text-align: center;
+.image-produs{
+    width: 128px;
+}
+
+.btn-produs{
+    background-color: aliceblue;
+    border: none;
+    width: 100px;
+    border-radius: 12px;
 }
 </style>
