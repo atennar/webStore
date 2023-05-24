@@ -1,26 +1,33 @@
 <template>
-  <h1>Start Vue cli</h1>
+  <h1>{{title}}</h1>
+  <input type="text" ref="name">
+  <button @click="handle">click</button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script>
 
-export default defineComponent({
+export default ({
   name: 'App',
-  components: {
-    
+  data(){
+    return{
+      title : 'for your name'
+    }
+  },
+
+  methods : {
+    handle (){
+      console.log('event')
+      console.log(this.$refs.name)
+      this.$refs.name.classList.add('mahid')
+      this.$refs.name.value="value"
+    }
   }
 });
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1{
+  color: aqua;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
