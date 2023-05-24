@@ -1,13 +1,17 @@
 <template>
     <div class="produs">
         <img src="./image/fruit.png" alt="cant load" class="image-produs">
-        <h1>orange</h1>
+        <h1>{{title}}</h1>
         <h2>price : 25.000 T</h2>
         <button class="btn-produs">buy</button>
     </div>
 </template>
 
-
+<script>
+export default {
+    props : ['title']
+}
+</script>
 <style >
 .produs{
     text-align: center;

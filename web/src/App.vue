@@ -1,5 +1,5 @@
 <template>
-  <Modal />
+  <Modal title="benana" />
 </template>
 
 <script>
