@@ -2,14 +2,14 @@
     <div class="produs">
         <img src="./image/fruit.png" alt="cant load" class="image-produs">
         <h1>{{title}}</h1>
-        <h2>price : 25.000 T</h2>
+        <h2>{{price}}</h2>
         <button class="btn-produs">buy</button>
     </div>
 </template>
 
 <script>
 export default {
-    props : ['title']
+    props : ['title' , 'price']
 }
 </script>
 <style >
@@ -21,6 +21,7 @@ export default {
     padding: 10px;
     border-radius: 10px;
     color: aliceblue;
+    width: 200px;
 }
 
 .image-produs{
