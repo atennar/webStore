@@ -1,7 +1,8 @@
 <template>
   <h1>{{title}}</h1>
-  <input type="text" ref="name">
-  <button @click="handle">click</button>
+  <input type="text" ref="search">
+  <button @click="search">search</button>
+  <button @click="add">add</button>
 </template>
 
 <script>
@@ -16,13 +17,11 @@ export default ({
   },
 
   methods : {
-    handle (){
-      console.log('event')
-      console.log(this.$refs.name)
-      this.$refs.name.classList.add('mahid')
-      // this.$refs.name.value=this.names[0]
-      if(this.$refs.name.value===this.names[0]){
-        console.log('find')
+    search (){
+      for(let name in this.names){
+        if(this.$refs.search.value === this.names[name]){
+          console.log('find')
+        }
       }
     }
   }
