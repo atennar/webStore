@@ -6,8 +6,10 @@ const msg = 'Hello!'
 function log() {
   console.log(msg)
 }
+
 </script>
 
 <template>
-  <button @click="log">{{ msg }}</button>
+  <button @click="log">kdjf</button>
+
 </template>

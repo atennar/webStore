@@ -1,49 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>vue 3 Course</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- <script src="https://unpkg.com/vue@3.0.2"></script> -->
-    <style>
-      .box{
-        padding: 100px 0;
-        width: 500px;
-        text-align: center;
-        background:#b4a8a8;
-        margin: 20px;
-        display: inline-block;
+<head>
+  <title>Document</title>
+  <style>
+    .box{
+      background-color: purple;
+      width: 200px;
+      height: 200px;
+    }
+    /* .box.two{
+      background-color: red;
+    }
+    .box.three{
+      background-color: blue;
+    } */
+    [v-cloak]{
+      display: none;
+    }
+    input{
+      margin: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <!-- {{greeting}} -->
+    <!-- <form action=""></form> or <custom-form /> -->
+    <login-form />
+  
+    <!-- <input @keyup.right="greet(greeting + '!!!!!!!')" v-model="greeting" /> -->
+    <input @keyup.prevent.stop="greet(greeting + '!!!!!!!')" v-model="greeting" />
+
+    <hr/>
+    <!-- v-if and v-show -->
+    <!-- <button v-on:click="isVisible=!isVisible" >toggle box</button> -->
+    <button @click="toggleBox" >toggle box</button>
+    <!-- <div v-if="isVisible" class="box"></div> -->
+    <!-- <div v-else-if="isVisible2" class="box two"></div>
+    <div v-else class="box three"></div> -->
+
+  </div>
+  <script src="https://unpkg.com/vue@next"  ></script>
+  <script>
+    let app = Vue.createApp({
+      data: function() {
+        return{
+          greeting: 'Hello vue 3!',
+          isVisible: false,
+          // isVisible2 :true
+
+        }
+      },
+      components:['custom-input'],
+      methods: {
+        toggleBox(){
+          this.isVisible=!this.isVisible
+        } ,
+        greet(greeting){
+          console.log(greeting)
+        }
+
       }
-    </style>
-  </head>
-  <body>
-    <!-- div tavasot vue modiriat mishe -->
-    <!-- div#app  + tab -->
-    <div id="app">
-      <div v-if=showBooks>
-        <p>{{title}} - {{author}} - {{age}}</p>
-      </div>
-      <button @click="changeShowBook">
-        <span v-if=showBooks>hide book</span>
-        <!-- <span v-if=!showBooks>show book</span> -->
-        <!-- or -->
-        <span v-else>show book</span> 
-
-      </button>
-      <div v-show=showBooks>showing....</div>
-      <br>
-      <button v-on:click = "age++">Increase</button>
-      <button v-on:click = "age--">decrease</button>
-      <br>
-      <hr>
-      <br>
-      <div class="box" @mouseover="handleEvent">mouse over</div>
-      <div class="box" @mouseover="handleEvent">mouse over</div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <!-- @ = v-on -->
-      <div @click="changetitle('boostan')">change title</div>
-
-    </div>
-    <script src="app.js"></script>
-  </body>
+    })
+    // v-model and v-bind
+    app.component('login-form',{
+      template:`
+        <form @submit.prevent="handleSubmit">
+          <h1>{{title}}</h1>
+          <custom-input type="email" :label="passwordLabel" />
+          <custom-input type="password" v-bind:label="emailLabel" />
+          <button>log in</button>
+        </form>
+      `,
+      data(){
+        return{
+          title:'login form',
+          email:'',
+          password:'',
+          emailLabel:'Email',
+          passwordLabel:'Password'
+        }
+      },
+      methods:{
+        handleSubmit(){
+          console.log(this.email,this.password)
+        }
+      }
+    })
+    app.component('custom-input',{
+      template:`
+        <label>
+          {{label}}
+          <input type="text" v-model="inputValue" />
+        </label>
+      `,
+      props:['label'],
+      data(){
+        return{
+          inputValue:''
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
 </html>

@@ -1,5 +1,6 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+// import test from './components/test.vue'
 </script>
 
 <template>
@@ -22,22 +23,9 @@ import HelloWorld from './components/HelloWorld.vue'
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 3em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
-</style> -->
-<script setup lang="ts">
-      // variable
-    const msg = 'Hello!'
-      
-      // functions
-    function log() {
-      console.log(msg)
-    }
-    </script>
-      
-    <template>
-      <button @click="log">irih</button>
-    </template>
+</style>
