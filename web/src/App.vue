@@ -21,7 +21,7 @@ export default ({
       console.log(this.$refs.name)
       this.$refs.name.classList.add('mahid')
       // this.$refs.name.value=this.names[0]
-      if(this.$refs.name.value=this.names[0]){
+      if(this.$refs.name.value===this.names[0]){
         console.log('find')
       }
     }
