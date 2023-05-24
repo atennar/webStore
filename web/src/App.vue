@@ -1,14 +1,12 @@
 <template>
-  <h1>{{title}}</h1>
-  <input type="text" ref="search">
-  <button @click="search">search</button>
-  <button @click="add">add</button>
+  <Modal />
 </template>
 
 <script>
-
+import Modal from './components/Modal.vue'
 export default ({
   name: 'App',
+  components : {Modal},
   data(){
     return{
       title : 'for your name',
@@ -16,23 +14,8 @@ export default ({
     }
   },
 
-  methods : {
-    search (){
-      for(let name in this.names){
-        if(this.$refs.search.value === this.names[name]){
-          console.log('find')
-        }
-      }
-    },
-
-    add(){
-      this.names.push(this.$refs.search.value)
-      for(let x in this.names){
-        if(this.names[x])
-        console.log(this.names[x])
-      }
-    }
-  }
+  
+  
 });
 </script>
 
