@@ -10,7 +10,8 @@ export default ({
   name: 'App',
   data(){
     return{
-      title : 'for your name'
+      title : 'for your name',
+      names :['ali','mohammad']
     }
   },
 
@@ -19,7 +20,10 @@ export default ({
       console.log('event')
       console.log(this.$refs.name)
       this.$refs.name.classList.add('mahid')
-      this.$refs.name.value="value"
+      // this.$refs.name.value=this.names[0]
+      if(this.$refs.name.value=this.names[0]){
+        console.log('find')
+      }
     }
   }
 });
