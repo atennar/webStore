@@ -23,6 +23,14 @@ export default ({
           console.log('find')
         }
       }
+    },
+
+    add(){
+      this.names.push(this.$refs.search.value)
+      for(let x in this.names){
+        if(this.names[x])
+        console.log(this.names[x])
+      }
     }
   }
 });
