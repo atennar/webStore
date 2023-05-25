@@ -8,12 +8,12 @@
       width: 200px;
       height: 200px;
     }
-    /* .box.two{
+    .box.two{
       background-color: red;
     }
     .box.three{
       background-color: blue;
-    } */
+    }
     [v-cloak]{
       display: none;
     }
@@ -25,19 +25,19 @@
 </head>
 <body>
   <div id="app" v-cloak>
-    <!-- {{greeting}} -->
+    {{greeting}}
     <!-- <form action=""></form> or <custom-form /> -->
     <login-form />
-  
-    <!-- <input @keyup.right="greet(greeting + '!!!!!!!')" v-model="greeting" /> -->
-    <input @keyup.prevent.stop="greet(greeting + '!!!!!!!')" v-model="greeting" />
+<!--   
+    <input @keyup.right="greet(greeting + '!!!!!!!')" v-model="greeting" />    //with press right click greeting will apear
+    <input @keyup.prevent.stop="greet(greeting + '!!!!!!!')" v-model="greeting" />  //with press every click greeting will be apear -->
 
-    <hr/>
+    <!-- <hr/> -->
     <!-- v-if and v-show -->
     <!-- <button v-on:click="isVisible=!isVisible" >toggle box</button> -->
-    <button @click="toggleBox" >toggle box</button>
-    <!-- <div v-if="isVisible" class="box"></div> -->
-    <!-- <div v-else-if="isVisible2" class="box two"></div>
+    <!-- <button @click="toggleBox" >toggle box</button>
+    <div v-if="isVisible" class="box"></div>
+    <div v-else-if="isVisible2" class="box two"></div>
     <div v-else class="box three"></div> -->
 
   </div>
@@ -46,9 +46,9 @@
     let app = Vue.createApp({
       data: function() {
         return{
-          greeting: 'Hello vue 3!',
-          isVisible: false,
-          // isVisible2 :true
+          greeting: 'welocome!',
+          isVisible: true,
+          isVisible2 :true
 
         }
       },
@@ -68,23 +68,37 @@
       template:`
         <form @submit.prevent="handleSubmit">
           <h1>{{title}}</h1>
-          <custom-input type="email" :label="passwordLabel" />
-          <custom-input type="password" v-bind:label="emailLabel" />
+          <custom-input
+            v-for="(input,i) in inputs"
+            :key="i"
+            v-model="input.value"
+            :label="input.label"
+            :type="input.type"
+          />
           <button>log in</button>
         </form>
       `,
       data(){
         return{
           title:'login form',
-          email:'',
-          password:'',
-          emailLabel:'Email',
-          passwordLabel:'Password'
+          inputs:[
+            {
+              label:'Email',
+              value:'',
+              type:'email'
+            },
+            {
+              label:'Password',
+              value:'',
+              type:'password'
+            }
+          ]
+         
         }
       },
       methods:{
         handleSubmit(){
-          console.log(this.email,this.password)
+          console.log(this.inputs[0].value,this.inputs[1].value)
         }
       }
     })
@@ -92,15 +106,28 @@
       template:`
         <label>
           {{label}}
-          <input type="text" v-model="inputValue" />
+          <input :type="type" v-model="inputValue" >
         </label>
       `,
-      props:['label'],
-      data(){
-        return{
-          inputValue:''
+      props:['label','type','modelValue'],
+      computed:{
+        inputValue:{
+          get(){
+            return this.modelValue
+
+          }, 
+          set(value){
+            this.$emit('update:modelValue',value)
+
+          }
         }
-      }
+
+      },
+      // data(){
+      //   return{
+      //     inputValue:''
+      //   }
+      // }
     })
     app.mount('#app')
   </script>
