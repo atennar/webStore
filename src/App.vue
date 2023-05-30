@@ -1,34 +1,33 @@
 <template>
-  <ul>
-    <li v-for="x in counter" :key="x">
-      <Modal :title="titles[x-1]" :prices="prices[x-1]"/>
-    </li>
-  </ul>
-    
-  
+  <input type="text" ref="name">
+  <button @click="eventHandeling">Password mode</button>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
-export default ({
-  name: 'App',
-  components : {Modal},
-  data(){
-    return{
-      counter:3,
-      titles : ['benana','orange','watermelone'],
-      prices : [25000,30000,45000]
 
+  export default {
+    data(){
+      return{
+        title : 'this is a sample test'
+      }
+    },
+
+    methods : {
+      eventHandeling(){
+        console.log('this is for testing methods');
+        console.log(this.$refs.name);
+        console.log(this.$refs.name.type);
+        this.$refs.name.type= 'password'
+        this.$refs.name.classList.add('test');
+      },
     }
-  },
-
+  }
   
   
-});
 </script>
 
 <style>
-li{
-  display: inline-block;
+h1{
+  color: aqua;
 }
 </style>
