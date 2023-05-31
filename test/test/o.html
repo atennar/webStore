@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>open code</title>
+        <script src="https://unpkg.com/vue@3.0.2"></script>
+        <style>
+            .box{
+                padding: 100px 0px;
+                width: 400px;
+                text-align: center;
+                background-color: palegoldenrod;
+                margin: 40px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <a :href = "url">google.</a>
+        <div id="o">
+            <div v-if=showName>
+                <!-- without v-for -->
+                <!-- <p>{{persons[0].name}}- {{persons[0].age}}</p>
+                <p>{{persons[1].name}}- {{persons[1].age}}</p>
+                <p>{{persons[2].name}}- {{persons[2].age}}</p> -->
+                <!-- priveous work -->
+                <!-- <button v-on:click="age++">Increase</button>
+                <button v-on:click="age--">Decrease</button>
+                <div @click="changeTitle('zahra')">change title</div> -->
+                <!-- with v-for -->
+                <ul v-for="person in persons">
+                    <li>
+                        <h3>{{person.name}}</h3>
+                        <p>{{person.age}}</p>
+                    </li>
+                </ul>
+            </div>    
+
+            <button @click="changeShowName">
+                <span v-if=showName>hide books</span>
+                <span v-else>show books</span>
+            </button>
+
+            <div v-show=showName>showing........</div>
+
+            <br>
+            <hr>
+            <br>
+
+            <div class="box" @mouseover = "handleEvent">mouse over</div>
+            <div class="box" @mouseleave = "handleEvent">mouse leave</div>
+            <div class="box" @dblclick = "handleEvent">double click</div>
+            <div class="box" @mousemove="handleMouseMove">{{x}},{{y}}</div>
+
+        </div>
+
+        <script src="o.js"></script> 
+    </body>
+</html>
