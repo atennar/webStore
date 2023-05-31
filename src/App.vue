@@ -1,7 +1,10 @@
 <template>
-  <Modal @click="changeTheme" :header="headere" :text="text" :theme="theme" />
-  <h1>this is for test</h1>
-  
+  <Modal class="test" @close="changeTheme" :header="headere" :text="text" :theme="theme"  v-if="theme"/>
+  <div style="text-align: center;">
+    <h1>this is for test</h1>
+  <p>this buton for show Modal</p>
+  <button @click="changeTheme">show Modal</button>
+  </div>
 </template>
 
 <script>
@@ -13,18 +16,11 @@
         title : 'this is a sample test',
         headere : 'this is props for a test',
         text : 'this is detals for props',
-        theme : false
+        theme : true
       }
     },
 
     methods : {
-      eventHandeling(){
-        console.log('this is for testing methods');
-        console.log(this.$refs.name);
-        console.log(this.$refs.name.type);
-        this.$refs.name.type= 'password'
-        this.$refs.name.classList.add('test');
-      },
 
       changeTheme(){
         this.theme = !this.theme
@@ -40,4 +36,6 @@
 h1{
   font-style: italic;
 }
+
+
 </style>

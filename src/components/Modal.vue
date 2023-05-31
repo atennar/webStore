@@ -1,5 +1,5 @@
 <template>
-    <div class="backgroand">
+    <div class="backgroand" @click.self="Hidemodal">
         <div class="modal" :class="{sale: theme === true}">
             <h1> {{ header }} </h1>
             <p> {{ text }} </p>
@@ -9,7 +9,13 @@
 
 <script>
 export default {
-    props : ['header' , 'text' , 'theme']
+    props : ['header' , 'text' , 'theme'],
+
+    methods : {
+        Hidemodal(){
+            this.$emit('close');
+        }
+    }
 }
 </script>
 
@@ -30,11 +36,15 @@ export default {
         border-radius: 10px;
         padding: 20px;
         width: fit-content;
-        margin: 128px 0ipx ;
+        margin: 128px 0px ;
     }
 
     .sale{
         background-color: crimson;
         font-style: italic;
+    }
+    .sale h1{
+        font-style: italic;
+        
     }
 </style>
