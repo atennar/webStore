@@ -1,14 +1,19 @@
 <template>
-  <input type="text" ref="name">
-  <button @click="eventHandeling">Password mode</button>
+  <Modal @click="changeTheme" :header="headere" :text="text" :theme="theme" />
+  <h1>this is for test</h1>
+  
 </template>
 
 <script>
-
+  import Modal from './components/Modal.vue'
   export default {
+    components : {Modal},
     data(){
       return{
-        title : 'this is a sample test'
+        title : 'this is a sample test',
+        headere : 'this is props for a test',
+        text : 'this is detals for props',
+        theme : false
       }
     },
 
@@ -20,14 +25,19 @@
         this.$refs.name.type= 'password'
         this.$refs.name.classList.add('test');
       },
+
+      changeTheme(){
+        this.theme = !this.theme
+      }
     }
   }
   
   
 </script>
 
-<style>
+<style scoped>
+
 h1{
-  color: aqua;
+  font-style: italic;
 }
 </style>
