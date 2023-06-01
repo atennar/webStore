@@ -1,29 +1,37 @@
 <template>
-  <Modal class="test" @close="changeTheme" :header="headere" :text="text" :theme="theme"  v-if="theme"/>
-  <div style="text-align: center;">
-    <h1>this is for test</h1>
-  <p>this buton for show Modal</p>
-  <button @click="changeTheme">show Modal</button>
+  <div v-if="showBoxLogin">
+    <Header @login="login" @choose="choose"  />
+  </div>
+  <div v-if="!showBoxLogin">
+    <login-form />
+  </div >
+  <div v-if="showCooseCity">
+    <chooseCity @hideCity="choose" />
+    
   </div>
 </template>
 
 <script>
-  import Modal from './components/Modal.vue'
+  import Header from './components/Header.vue'
+  import LoginForm from './components/LoginForm.vue'
+  import ChooseCity from './components/ChooseCity.vue'
   export default {
-    components : {Modal},
+    components : {Header,LoginForm,ChooseCity},
     data(){
       return{
-        title : 'this is a sample test',
-        headere : 'this is props for a test',
-        text : 'this is detals for props',
-        theme : true
+        showBoxLogin : true,
+        showCooseCity : false
       }
     },
 
     methods : {
 
-      changeTheme(){
-        this.theme = !this.theme
+      login(){
+        this.showBoxLogin = !this.showBoxLogin
+      },
+
+      choose(){
+        this.showCooseCity = !this.showCooseCity
       }
     }
   }

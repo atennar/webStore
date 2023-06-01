@@ -1,0 +1,76 @@
+<template>
+<div class="backgraund">
+    <img class="logo" src="../images/logo.png" alt="cant load logo">
+    <button @click="ChooseCity" class="chooseCity">انتخاب شهر</button>
+    <input  class="inputSearch" type="text" placeholder="جستو و جو در فوشگاه">
+    <button @click="login" class="loginSignIn">ورود و ثبت نام</button>
+</div>
+</template>
+
+<script>
+  export default{
+
+    methods : {
+        login(){
+            this.$emit('login')
+        },
+
+        ChooseCity(){
+            this.$emit('choose')
+        }
+    }
+  }
+  
+  
+</script>
+
+<style >
+
+.backgraund{
+    text-align: right;
+    direction: rtl;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(232, 236, 236);
+    border-radius: 15px;
+    width: 97%;
+}
+
+    .logo{
+    width: 128px;
+    margin: 10px;
+    }
+    .chooseCity{
+        background-color: rgb(61, 250, 61);
+        border: none;
+        border-radius: 10px;
+        height: 48px;
+        width: 128px;
+        position: relative;
+        top: 10px;
+    }
+
+    .inputSearch{
+        height: 32px;
+        width: 512px;
+        position: relative;
+        top: 16px;
+        right: 64px;
+        border: 2px solid gray;
+        border-radius: 10px;
+        direction: rtl;
+        text-align: center;
+    }
+
+    .loginSignIn{
+        position: relative;
+        right: 35%;
+        height: 48px;
+        width: 128px;
+        top: 10px;
+        background-color: rgb(61, 250, 61);
+        border: none;
+        border-radius: 10px;
+    }
+</style>
