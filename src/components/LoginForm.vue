@@ -1,4 +1,5 @@
 <template >
+    <MyHeader @LoadMainPage="LoadMain" />
     <h1 align="center">خوش امدید لطفا ثبت نام کنید</h1>
         <div class="loginform">
         <h2 align="right">اعضای فروشگاه </h2>
@@ -21,7 +22,16 @@
 </template>
 
 <script>
+    import MyHeader from './Header.vue'
+    export default {
+        components : {MyHeader},
 
+        methods : {
+            LoadMain(){
+                this.$emit('mainPage')
+            }
+        }
+    }
 </script>
 
 <style scoped>

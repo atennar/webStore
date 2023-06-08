@@ -53,5 +53,11 @@
         border-radius: 10px;
         padding: 30px;
 
+        background-image: url('../../public/images/choseCity.avif');
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        /* background-color: white; */
+        /* opacity: 75%; */
+        background-size: contain;
     }
 </style>

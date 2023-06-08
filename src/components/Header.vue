@@ -1,6 +1,6 @@
 <template>
 <div class="backgraund">
-    <img class="logo" src="../images/logo.png" alt="cant load logo">
+    <img @click="LoadMainPage" class="logo" src="../../public/images/logo.png" alt="cant load logo">
     <button @click="ChooseCity" class="chooseCity">انتخاب شهر</button>
     <input  class="inputSearch" type="text" placeholder="جستو و جو در فوشگاه">
     <button @click="login" class="loginSignIn">ورود و ثبت نام</button>
@@ -17,6 +17,10 @@
 
         ChooseCity(){
             this.$emit('choose')
+        },
+
+        LoadMainPage(){
+            this.$emit('LoadMainPage')
         }
     }
   }
