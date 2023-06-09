@@ -7,7 +7,7 @@
     </div>
     <hr>
     <Banners />
-    <SpecialOffer />
+    <SpecialOffer @OfferClicked="clicked" />
   </div>
   <div v-if="!showBoxLogin">
     <login-form @mainPage="LoadMain" />
@@ -30,7 +30,8 @@
       return{
         showBoxLogin : true,
         showCooseCity : false,
-        groups : ["اقلام تنظیم بازار","میوه و صیفی","اقلام خوراکی","اقلام غیر خوراکی"]
+        groups : ["اقلام تنظیم بازار","میوه و صیفی","اقلام خوراکی","اقلام غیر خوراکی"],
+        fruitClicked : {name : String ,oldPrice : Number, price :Number, image : String , id:Number }
       }
     },
 
@@ -46,8 +47,15 @@
 
       LoadMain(){
         this.showBoxLogin = true
-      }
+      },
       
+      clicked(fruit){
+        console.log(fruit.name)
+        this.fruitClicked = fruit
+        console.log('/////////////')
+        console.log(this.fruitClicked.name)
+
+      }
     }
   }
   
