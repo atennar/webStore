@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showBoxLogin">
+  <div v-if="showBoxLogin&&!showFruit">
     <Header @login="login"   @choose="choose"  />
     <div class="Grouping">
       <h3 style="font-size: 22px;">دسته بندی ها</h3>
@@ -16,6 +16,10 @@
     <chooseCity @hideCity="choose" />
     
   </div>
+
+  <div v-if="showFruit">
+      <IntroductionFruit @loadMainPage="LoadMain" :fruit="fruitClicked" />
+  </div>
 </template>
 
 <script>
@@ -24,12 +28,14 @@
   import ChooseCity from './components/ChooseCity.vue'
   import Banners from './components/Banners.vue'
   import SpecialOffer from './components/SpecialOffer.vue'
+  import IntroductionFruit from './components/IntroductionFruit.vue'
   export default {
-    components : {Header,LoginForm,ChooseCity,Banners,SpecialOffer},
+    components : {Header,LoginForm,ChooseCity,Banners,SpecialOffer,IntroductionFruit},
     data(){
       return{
         showBoxLogin : true,
         showCooseCity : false,
+        showFruit : false,
         groups : ["اقلام تنظیم بازار","میوه و صیفی","اقلام خوراکی","اقلام غیر خوراکی"],
         fruitClicked : {name : String ,oldPrice : Number, price :Number, image : String , id:Number }
       }
@@ -47,13 +53,12 @@
 
       LoadMain(){
         this.showBoxLogin = true
+        this.showFruit = false
       },
       
       clicked(fruit){
-        console.log(fruit.name)
         this.fruitClicked = fruit
-        console.log('/////////////')
-        console.log(this.fruitClicked.name)
+        this.showFruit = true
 
       }
     }

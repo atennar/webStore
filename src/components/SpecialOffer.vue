@@ -10,8 +10,8 @@
         <div class="banner">
             <h2>تخفیف های <br>شگفت انگیز</h2>
         </div>
-        <div @click="clicked(fruit)" v-for="fruit in fruits" :key="fruit.id" class="product">
-            <img style="width: 150px;"  :src='fruit.image' alt="cant load">
+        <div @click.self="clicked(fruit)" v-for="fruit in fruits" :key="fruit.id" class="product">
+            <img @click.self="clicked(fruit)" style="width: 150px;"  :src='fruit.image' alt="cant load">
             <h3> {{ fruit.name }} </h3>
             <h3 style="direction: ltr; color: lightseagreen;">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
             <button class="btnBuy">خرید</button>
