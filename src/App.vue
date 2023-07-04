@@ -7,7 +7,7 @@
     </div>
     <hr>
     <Banners />
-    <SpecialOffer @OfferClicked="clicked" />
+    <SpecialOffer @OfferClicked="clicked" :fruits="fruits" />
   </div>
   <div v-if="!showBoxLogin">
     <login-form @mainPage="LoadMain" />
@@ -37,7 +37,18 @@
         showCooseCity : false,
         showFruit : false,
         groups : ["اقلام تنظیم بازار","میوه و صیفی","اقلام خوراکی","اقلام غیر خوراکی"],
-        fruitClicked : {name : String ,oldPrice : Number, price :Number, image : String , id:Number }
+        fruitClicked : {name : String ,oldPrice : Number, price :Number, image : String , id:Number },
+        fruits : [
+                    {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg', off:true , id:1},
+                    {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg',off:true , id:2},
+                    {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg',off:true , id:3},
+                    {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg',off:true , id:3},
+                    {name : ' موز' ,oldPrice : 80000, price :68000, image : '../images/benana.jpg',off:true , id:3},
+                    {name : ' کیوی' ,oldPrice : 45000, price :3000, image : '../images/kiwi.jpg',off:true , id:3},
+                    {name : ' آناناس' ,oldPrice : 16000, price :12000, image : '../images/ananas.jpg',off:true , id:3},
+                    
+                ]
+        
       }
     },
 

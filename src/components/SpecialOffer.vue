@@ -10,29 +10,23 @@
         <div class="banner">
             <h2>تخفیف های <br>شگفت انگیز</h2>
         </div>
-        <div @click.self="clicked(fruit)" v-for="fruit in fruits" :key="fruit.id" class="product">
+        <div v-for="fruit in fruits"  :key="fruit.id">
+            <div @click.self="clicked(fruit)"  v-if="fruit.off" class="product">
             <img @click.self="clicked(fruit)" style="width: 150px;"  :src='fruit.image' alt="cant load">
             <h3> {{ fruit.name }} </h3>
             <h3 style="direction: ltr; color: lightseagreen;">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
             <button class="btnBuy">خرید</button>
+        </div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        props : ['fruits'],
         data(){
             return{
-                fruits : [
-                    {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg' , id:1},
-                    {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg' , id:2},
-                    {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg' , id:3},
-                    {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg' , id:3},
-                    {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg' , id:3},
-                    {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg' , id:3},
-                    {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg' , id:3},
-                    
-                ]
+               offFruit : this.fruits 
                     
                 
             }
