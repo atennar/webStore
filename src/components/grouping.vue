@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
     data(){
         return {
@@ -27,7 +27,7 @@ export default {
 
     methods : {
 
-        clickOnGroup(groupName : string){
+        clickOnGroup(groupName){
             this.$emit('clickOnGroup',groupName)
         }
         
