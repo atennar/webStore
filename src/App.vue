@@ -20,6 +20,7 @@
 
   <div v-if="showFruit">
       <IntroductionFruit @loadMainPage="LoadMain"  :fruit="fruitClicked" />
+      
   </div>
 
   <div v-if="showGroup">
@@ -66,6 +67,9 @@
                     {name : ' پنیر پیتزا' ,oldPrice : 50000, price :50000, image : '../images/panirpitza.jpg',off:false,grouping:'پروتئین' , id:16},
                     {name : ' گوشت' ,oldPrice : 150000, price :150000, image : '../images/goosht.jpg',off:false,grouping:'پروتئین' , id:17},
                     {name : ' کالباس' ,oldPrice : 80000, price :10000, image : '../images/calbas.jpg',off:false,grouping:'پروتئین' , id:18},
+                    {name : ' خیارشور' ,oldPrice : 14000, price :14000, image : '../images/khiarshoor.jpg',off:false,grouping:'کنسرو' , id:19},
+                    {name : ' تن ماهی' ,oldPrice : 37000, price :37000, image : '../images/toneMahi.jpg',off:false,grouping:'کنسرو' , id:20},
+                    {name : ' ترشی' ,oldPrice : 50000, price :50000, image : '../images/toroshi.jpg',off:false,grouping:'کنسرو' , id:21},
                     
                 ]
         

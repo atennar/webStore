@@ -27,7 +27,7 @@
         data(){
             return{
                offFruit : this.fruits 
-                    
+                
                 
             }
         },
