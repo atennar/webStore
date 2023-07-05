@@ -41,7 +41,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 .scrole{
     padding: 10px;
     direction: rtl;
