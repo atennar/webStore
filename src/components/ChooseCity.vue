@@ -1,7 +1,7 @@
 <template>
 <div @click.self="HideCity" class="backList">
     <div class="cityBox">
-        <button class="btnCyti" v-for="name in cyties" :key="name"> {{ name }} </button>
+        <button class="btnCyti" @click="HideCity" v-for="name in cyties" :key="name" > {{ name }} </button>
     </div>
 </div>
 </template>
@@ -26,7 +26,7 @@
 <style>
     .btnCyti{
         background-color: rgb(248, 246, 246);
-        border: 1px solid rgb(185, 185, 185 , 0.5);
+        border: 1px solid rgba(146, 145, 145, 0.5);
         width: 100px;
         height: 50px;
         border-radius: 5px;
@@ -39,7 +39,7 @@
         left: 0%;
         height: 100%;
         width: 100%;
-        background-color: rgb(176, 175, 175 ,0.5);
+        background-color: rgba(117, 117, 117, 0.5);
         text-align: center;
     }
 
@@ -53,11 +53,12 @@
         border-radius: 10px;
         padding: 30px;
 
-        background-image: url('../../public/images/choseCity.avif');
-        filter: grayscale(100%);
-        -webkit-filter: grayscale(100%);
-        /* background-color: white; */
-        /* opacity: 75%; */
-        background-size: contain;
+        background-image: url('../../public/images/ChooseCity.jpg');
+        background-size: cover;
+    }
+
+    .btnCyti:hover{
+        background-color: rgb(3, 204, 3);
+        transition: 1s;
     }
 </style>

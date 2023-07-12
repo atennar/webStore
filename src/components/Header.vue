@@ -3,7 +3,7 @@
     <img @click="LoadMainPage" class="logo" src="../../public/images/logo.png" alt="cant load logo">
     <button @click="ChooseCity" class="chooseCity">انتخاب شهر</button>
     <input  class="inputSearch" type="text" placeholder="جستو و جو در فوشگاه">
-    <button @click="login" class="loginSignIn">ورود و ثبت نام</button>
+    <router-link to="/Login"><button class="Login">ورود و ثبت نام</button></router-link>
 </div>
 </template>
 
@@ -77,4 +77,16 @@
         border: none;
         border-radius: 10px;
     }
+
+    .Login{
+        background-color:  rgb(61, 250, 61);
+        border: none;
+        border-radius: 10px;
+        height: 48px;
+        width: 128px;
+        position: relative;
+        top: 10px;
+        right: 512px;
+    }
+    
 </style>

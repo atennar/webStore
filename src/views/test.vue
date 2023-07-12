@@ -1,35 +1,32 @@
 <template>
-    <head>
-    </head>
-    <div class="line">
-        <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
-        <h2>شگفت انگیز ها </h2>
-        <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
-    </div>
-    <div class="scrole">
-        <div class="banner">
-            <h2>تخفیف های <br>شگفت انگیز</h2>
-        </div>
-        <div v-for="fruit in fruits"  :key="fruit.id">
-            <router-link :to="{name:'Fruit' , params:{id: fruit.id}}" style="text-decoration: none; color: black;">
-                <div @click.self="clicked(fruit)"  v-if="fruit.off" class="product">
-                    <img @click.self="clicked(fruit)" style="width: 150px;"  :src='fruit.image' alt="cant load">
-                    <h3> {{ fruit.name }} </h3>
-                    <h3 style="direction: ltr; color: lightseagreen;">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
-                    <button class="btnBuy">خرید</button>
+  <body style="direction: rtl; width: 98%; position: relative; right: 1%; top: 20px; ">
+        <div style="display: ; width: 98%; justify-content: space-around; ">
+            <div style="display: flex;">
+                <hr style="width: 42%; height: 1px; background-color: black;" >
+                <h2 style="width: 15%; position: relative; top: -20px;" align="center">{{ $route.params.id }}</h2>
+                <hr style="width: 42%; height: 1px; background-color: black;">
+            </div>
+            
+
+            <div class="panelOfProduct" v-for="fruit in fruits.filter((e) => e.grouping == $route.params.id)" :key="fruit.id">
+                <router-link :to="{name:'Fruit' , params : {id : fruit.id}}" style="text-decoration: none; color: black;">
+                    <div class="background">
+                    <img :src="fruit.image" alt="can't load this image" style="width: 200px; border-radius: 5px;">
+                    <h1 >{{ fruit.name }}</h1>
+                    <h2 >{{ fruit.price }}</h2>
+                    <button class="BTN">خرید</button>
                 </div>
-            </router-link>
+                </router-link>
+            </div>
         </div>
-    </div>
+    </body>
 </template>
 
 <script>
-    export default {
-        // props : ['fruits'],
-        data(){
-            return{
-            //    offFruit : this.fruits,
-               fruits : [
+export default {
+    data(){
+        return{
+            fruits : [
                     {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg', off:true, grouping:'میوه' , id:1},
                     {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg',off:true,grouping:'میوه' , id:2},
                     {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
@@ -52,89 +49,39 @@
                     {name : ' تن ماهی' ,oldPrice : 37000, price :37000, image : '../images/toneMahi.jpg',off:false,grouping:'کنسرو' , id:20},
                     {name : ' ترشی' ,oldPrice : 50000, price :50000, image : '../images/toroshi.jpg',off:false,grouping:'کنسرو' , id:21},
             ]
-                
-            }
-        },
-
-        methods : {
-            clicked(fruit){
-                // console.log(fruit.name)
-                this.$emit('OfferClicked',fruit)
-            }
         }
     }
+}
 </script>
 
 <style scoped>
-.scrole{
-    padding: 10px;
-    direction: rtl;
-    /* background-color: #51ff00; */
-    background-image: url('../../public/images/images.jpg');
-    overflow: auto;
-    white-space: nowrap;
-    display: flex;
-    justify-content: right;
-    width: 97%;
-    border-radius: 15px;
-    border: 1px gray dashed;
-    padding: 10px;
-    margin: 0 1%;
-}
+.panelOfProduct{
+        display: inline-flex;
+        
+    }
+    
+    .background{
+        text-align: center;
+        /* background-color: aqua; */
+        border-radius: 10px;
+        width: 210px;
+        margin: 8px;
+        padding: 8px;
+        box-shadow: 1px 1px 10px 1px lightgray;
+    }
 
-.product{
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    margin: 10px; 
-    border-radius: 5px;
-    text-align: center;
-    /* box-shadow: 5px 5px 5px 5px  rgb(0, 0, 0);  */
-    width: 256px;
-}
+    .BTN{
+        width: 80%;
+        border: none;
+        height: 32px;
+        border-radius: 5px;
+        background-color: lightseagreen;
+    }
 
-.product img {
-    border-radius: 5px;
-}
+    .panelOfProduct :hover{
+        scale: 105%;
 
-.banner{
-    text-align: center;
-    display: flex;
-    align-items: center;
-    /* background-color: aqua; */
-    margin: 15px;
+        transition: 1s;
 
-}
-
-.scrole::-webkit-scrollbar{
-    overflow: hidden;
-
-}
-
-.line{
-    display: flex;
-    /* background-color: aqua; */
-    justify-content: center;
-}
-
-.btnBuy{
-    background-color: rgb(80, 200, 120);
-    border: none;
-    width: 50%;
-    border-radius: 5px;
-    color: white;
-}
-
-.btnBuy:hover{
-    scale: 105%;
-    transition: 0.5s;
-    background-color: rgb(80, 200, 120 ,0.7);
-}
-
-.product:hover{
-    scale: 105%;
-    transition: 0.5s;
-    background-color: rgb(154, 153, 153 , 0.7);
-}
-
-
+    }
 </style>

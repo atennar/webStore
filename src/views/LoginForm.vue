@@ -1,12 +1,11 @@
 <template >
-    <MyHeader @LoadMainPage="LoadMain" />
     <h1 align="center">خوش امدید لطفا ثبت نام کنید</h1>
         <div class="loginform">
         <h2 align="right">اعضای فروشگاه </h2>
         <hr>
         <br>
         <form action="#">
-            <input class="loginInput" type="text" required placeholder="شماره موبایل" style="text-align: center;">
+            <input class="loginInput" type="number" required placeholder="شماره موبایل" style="text-align: center;">
             <br>
             <br>
             <input class="loginInput" type="password" required placeholder="رمز عبور" style="text-align: center;">
@@ -22,9 +21,7 @@
 </template>
 
 <script>
-    import MyHeader from './Header.vue'
     export default {
-        components : {MyHeader},
 
         methods : {
             LoadMain(){

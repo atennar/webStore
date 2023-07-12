@@ -1,35 +1,32 @@
 <template>
-    <head>
-    </head>
-    <div class="line">
-        <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
-        <h2>شگفت انگیز ها </h2>
-        <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
-    </div>
-    <div class="scrole">
-        <div class="banner">
-            <h2>تخفیف های <br>شگفت انگیز</h2>
-        </div>
-        <div v-for="fruit in fruits"  :key="fruit.id">
-            <router-link :to="{name:'Fruit' , params:{id: fruit.id}}" style="text-decoration: none; color: black;">
-                <div @click.self="clicked(fruit)"  v-if="fruit.off" class="product">
-                    <img @click.self="clicked(fruit)" style="width: 150px;"  :src='fruit.image' alt="cant load">
-                    <h3> {{ fruit.name }} </h3>
-                    <h3 style="direction: ltr; color: lightseagreen;">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
-                    <button class="btnBuy">خرید</button>
-                </div>
-            </router-link>
+    <div class="introductionPage" v-for="fruit in fruits.filter((e) => e.id == id)" :key="fruit.id">
+        <img :src="fruit.image" alt="cant load" class="image">
+        <h1 class="Title">{{ fruit.name }} </h1>
+        <div class="SummaryIntroduction" >
+            <h1>{{ fruit.price }} تومان</h1>
+            <h2 > قیمت قبل : <del style="color: rgb(253, 3, 3 ,0.5);" >{{ fruit.oldPrice }} تومان</del>  </h2>
+            <h2 >قیمت جدید : <b style="color: rgba(13, 231, 1, 0.9);">{{ fruit.price }} تومان</b> </h2>
+            <h3 style="color: rgb(98, 99, 100);">بدون مالیات بر ارزش افزوده : <b style="color: black;">هزینه ارسال</b></h3>
+            <div class="Counter">
+                <button @click="Icrease" class="BTNIncrease">+</button>
+                <h2 >{{ counter }}</h2>
+                <button @click="Dicrease" class="BTNIncrease">-</button>
+            </div>
+            <button class="BTNBuy" >خرید</button>
         </div>
     </div>
+    <!-- <h1>this is for test</h1> -->
+
 </template>
 
 <script>
     export default {
-        // props : ['fruits'],
+        props : ['id'],
         data(){
             return{
-            //    offFruit : this.fruits,
-               fruits : [
+                counter : 0,
+
+                fruits : [
                     {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg', off:true, grouping:'میوه' , id:1},
                     {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg',off:true,grouping:'میوه' , id:2},
                     {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
@@ -52,89 +49,85 @@
                     {name : ' تن ماهی' ,oldPrice : 37000, price :37000, image : '../images/toneMahi.jpg',off:false,grouping:'کنسرو' , id:20},
                     {name : ' ترشی' ,oldPrice : 50000, price :50000, image : '../images/toroshi.jpg',off:false,grouping:'کنسرو' , id:21},
             ]
-                
             }
         },
-
         methods : {
-            clicked(fruit){
-                // console.log(fruit.name)
-                this.$emit('OfferClicked',fruit)
+            mainPage(){
+                this.$emit('loadMainPage')
+            },
+
+            Icrease(){
+                this.counter++
+            },
+
+            Dicrease(){
+                this.counter--
             }
         }
     }
 </script>
 
 <style scoped>
-.scrole{
-    padding: 10px;
-    direction: rtl;
-    /* background-color: #51ff00; */
-    background-image: url('../../public/images/images.jpg');
-    overflow: auto;
-    white-space: nowrap;
-    display: flex;
-    justify-content: right;
-    width: 97%;
-    border-radius: 15px;
-    border: 1px gray dashed;
-    padding: 10px;
-    margin: 0 1%;
-}
+    .introductionPage{
+        display: inline-flex;
+        direction: rtl;
+        position: absolute;
+        margin: 1%;
+        width: 98%;
+    }
 
-.product{
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    margin: 10px; 
-    border-radius: 5px;
-    text-align: center;
-    /* box-shadow: 5px 5px 5px 5px  rgb(0, 0, 0);  */
-    width: 256px;
-}
+    .image{
+        position: relative;
+        top: 64px;
+        right: 64px;
+        width: 384px;
+    }
 
-.product img {
-    border-radius: 5px;
-}
+    .Title{
+        position: relative;
+        top: 64px;
+        right : 450px
+    }
 
-.banner{
-    text-align: center;
-    display: flex;
-    align-items: center;
-    /* background-color: aqua; */
-    margin: 15px;
+    .SummaryIntroduction{
+        background-color: rgb(244, 245, 243);
+        position: relative;
+        width: 512px;
+        top: 150px;
+        right: 390px;
+        padding: 0px 20px;
+        border-radius:10px ;
+    }
 
-}
+    .BTNBuy{
+        border: none;
+        width: 77%;
+        height: 40px;
+        background-color: rgb(6, 193, 6);
+        border-radius: 5px;
+    }
 
-.scrole::-webkit-scrollbar{
-    overflow: hidden;
+    .Counter{
+        display: inline-flex;
+        width: 20%;
+        background-color: white;
+        margin: 1%;
+        border-radius: 5px;
+    }
 
-}
+    .BTNIncrease{
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin: 5px;
+        border: none;
+        background-color: white;
+    }
 
-.line{
-    display: flex;
-    /* background-color: aqua; */
-    justify-content: center;
-}
+    .Counter h2 {
+        margin: 5px;
+    }
 
-.btnBuy{
-    background-color: rgb(80, 200, 120);
-    border: none;
-    width: 50%;
-    border-radius: 5px;
-    color: white;
-}
-
-.btnBuy:hover{
-    scale: 105%;
-    transition: 0.5s;
-    background-color: rgb(80, 200, 120 ,0.7);
-}
-
-.product:hover{
-    scale: 105%;
-    transition: 0.5s;
-    background-color: rgb(154, 153, 153 , 0.7);
-}
-
+    
 
 </style>
