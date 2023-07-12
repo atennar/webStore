@@ -9,7 +9,7 @@
             
 
             <div class="panelOfProduct" v-for="fruit in fruits.filter((e) => e.grouping == $route.params.id)" :key="fruit.id">
-                <router-link :to="{name:'Fruit' , params : {id : fruit.id}}" style="text-decoration: none; color: black;">
+                <router-link :to="{name:'Fruit' , params : {id : fruit.name , group:fruit.grouping}}" style="text-decoration: none; color: black;">
                     <div class="background">
                     <img :src="fruit.image" alt="can't load this image" style="width: 200px; border-radius: 5px;">
                     <h1 >{{ fruit.name }}</h1>

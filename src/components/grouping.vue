@@ -1,7 +1,7 @@
 <template>
     <div class="scrole">
         <div class="background" v-for="group in groups" :key="group" @click="clickOnGroup(group.name)">
-            <router-link :to="{name: 'test' , params : {id : group.name}}" style="text-decoration: none; color: black;">
+            <router-link :to="{name: 'GrUop' , params : {id : group.name}}" style="text-decoration: none; color: black;">
                 <div>
                 <img :src='group.image' alt="cant load this " class="img">
                 <h2>{{ group.name }}</h2>
@@ -53,7 +53,7 @@ export default {
     border-radius: 15px;
     /* border: 1px gray solid; */
     padding: 10px;
-    margin: 64px 1%;
+    margin: 16px 1%;
 }
 
 .scrole::-webkit-scrollbar{

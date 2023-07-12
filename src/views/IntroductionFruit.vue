@@ -1,5 +1,5 @@
 <template>
-    <div class="introductionPage" v-for="fruit in fruits.filter((e) => e.id == id)" :key="fruit.id">
+    <div class="introductionPage" v-for="fruit in fruits.filter((e) => e.name == id)" :key="fruit.id">
         <img :src="fruit.image" alt="cant load" class="image">
         <h1 class="Title">{{ fruit.name }} </h1>
         <div class="SummaryIntroduction" >
@@ -21,7 +21,7 @@
 
 <script>
     export default {
-        props : ['id'],
+        props : ['id','name'],
         data(){
             return{
                 counter : 0,
@@ -29,9 +29,9 @@
                 fruits : [
                     {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg', off:true, grouping:'میوه' , id:1},
                     {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg',off:true,grouping:'میوه' , id:2},
-                    {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
+                    {name : ' خیار' ,oldPrice : 18000, price :18000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
                     {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg',off:true,grouping:'میوه' , id:4},
-                    {name : ' موز' ,oldPrice : 80000, price :68000, image : '../images/benana.jpg',off:false,grouping:'میوه' , id:5},
+                    {name : ' موز' ,oldPrice : 80000, price :68000, image : '../images/benana.jpg',off:true,grouping:'میوه' , id:5},
                     {name : ' کیوی' ,oldPrice : 45000, price :3000, image : '../images/kiwi.jpg',off:true,grouping:'میوه' , id:6},
                     {name : ' آناناس' ,oldPrice : 16000, price :12000, image : '../images/ananas.jpg',off:true,grouping:'fruit' , id:7},
                     {name : ' دوغ' ,oldPrice : 21000, price :19000, image : '../images/doogh.jpg',off:true,grouping:'نوشیدنی' , id:8},

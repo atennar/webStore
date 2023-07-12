@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import LoginForm from '../views/LoginForm.vue'
 import IntroductionFruit from '../views/IntroductionFruit.vue'
-import test from '../views/test.vue'
+import Grop from '../views/GroupProducts.vue'
 const routes = [
   {
     path:'/',
@@ -15,7 +15,7 @@ const routes = [
     component : LoginForm
   },
   {
-    path : '/Fruit/:id?',
+    path : '/:id?/:group?',
     name : 'Fruit',
     component : IntroductionFruit,
     props : true
@@ -27,9 +27,9 @@ const routes = [
   //   props : true
   // },
   {
-    path : '/test/:id?',
-    name : 'test',
-    component : test,
+    path : '/Gruop/:id?',
+    name : 'GrUop',
+    component : Grop,
     parops : true
   }
 ]

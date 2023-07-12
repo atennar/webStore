@@ -1,9 +1,11 @@
 <template>
     <nav>
-        <Header @choose="ChooseCity"/>
+        <!-- <Header @choose="ChooseCity"/> -->
         <Banner />
         <SpecialOffer/>
         <grouping/>
+        <GroupScroll  Group="میوه"/>
+        <GroupScroll  Group="کنسرو"/>
     </nav>
     <div class="city" v-if="showCity">
         <ChooseCity @hideCity="ChooseCity"/>
@@ -16,8 +18,9 @@
     import ChooseCity from '../components/ChooseCity.vue'
     import SpecialOffer from '@/components/SpecialOffer.vue'
     import grouping from '@/components/grouping.vue'
+    import GroupScroll from '@/components/GroupScroll.vue'
 export default {
-    components :{Header,Banner,ChooseCity,SpecialOffer,grouping},
+    components :{Header,Banner,ChooseCity,SpecialOffer,grouping,GroupScroll},
 
     data(){
 

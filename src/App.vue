@@ -1,10 +1,32 @@
 <template>
-    <router-view/>
+    <div>
+      <Header @choose="ChooseCity"/>
+      <router-view/>
+      <div class="city" v-if="showCity">
+        <ChooseCity @hideCity="ChooseCity"/>
+      </div>
+
+    </div>
 </template>
 <script>
-  
+  import Header from './components/Header.vue';
+  import ChooseCity from './components/ChooseCity.vue';
   export default{
-    
+    components: {Header,ChooseCity},
+      data(){
+
+      return{
+        showCity:false
+      }
+
+
+      },
+
+      methods:{
+        ChooseCity(){
+            this.showCity = !this.showCity
+        }
+    }
   }
 
 </script>

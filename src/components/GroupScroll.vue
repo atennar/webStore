@@ -3,36 +3,46 @@
     </head>
     <div class="line">
         <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
-        <h2>شگفت انگیز ها </h2>
+        <h2> {{ Group }} </h2>
         <hr  style="width: 40%; height: 0px; margin: 35px 15px;">
     </div>
     <div class="scrole">
         <div class="banner">
-            <h2>تخفیف های <br>شگفت انگیز</h2>
+            <!-- <h1>{{ Group }}</h1> -->
         </div>
-        <div v-for="fruit in fruits"  :key="fruit.id">
+        <div v-for="fruit in fruits.filter((e) => e.grouping == Group)"  :key="fruit.id">
+            
             <router-link :to="{name:'Fruit' , params:{id: fruit.name , group : fruit.grouping}}" style="text-decoration: none; color: black;">
-                <div @click.self="clicked(fruit)"  v-if="fruit.off" class="product">
+                <div @click.self="clicked(fruit)"  class="product">
                     <img @click.self="clicked(fruit)" style="width: 150px;"  :src='fruit.image' alt="cant load">
                     <h3> {{ fruit.name }} </h3>
-                    <h3 style="direction: ltr; color: lightseagreen;">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
+                    <h3 style="direction: ltr; color: lightseagreen;" v-if="fruit.off">  <del style="color: red;"> تومان {{ fruit.oldPrice }} </del> &nbsp; {{ fruit.price }}تومان </h3>
+                    <h3 style="direction: ltr; color: lightseagreen;" v-if="!fruit.off"> تومان {{ fruit.oldPrice }}</h3>
                     <button class="btnBuy">خرید</button>
                 </div>
             </router-link>
         </div>
+        <router-link :to="{name:'GrUop' , params:{id:Group}}">
+            <!-- <button style="position: relative; top: 45%;">See More</button> -->
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </div>
+        </router-link>
     </div>
 </template>
 
 <script>
     export default {
-        // props : ['fruits'],
+        props : ['Group'],
         data(){
             return{
             //    offFruit : this.fruits,
                fruits : [
                     {name : 'پیاز' ,oldPrice : 20000, price :15000, image : '../images/onion.jpg', off:true, grouping:'میوه' , id:1},
                     {name : ' سیب زمینی' ,oldPrice : 25000, price :17000, image : '../images/potato.jpg',off:true,grouping:'میوه' , id:2},
-                    {name : ' خیار' ,oldPrice : 18000, price :15000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
+                    {name : ' خیار' ,oldPrice : 18000, price :18000, image : '../images/cucumber.jpg',off:false,grouping:'میوه' , id:3},
                     {name : ' گوجه' ,oldPrice : 16000, price :12000, image : '../images/tomato.jpg',off:true,grouping:'میوه' , id:4},
                     {name : ' موز' ,oldPrice : 80000, price :68000, image : '../images/benana.jpg',off:true,grouping:'میوه' , id:5},
                     {name : ' کیوی' ,oldPrice : 45000, price :3000, image : '../images/kiwi.jpg',off:true,grouping:'میوه' , id:6},
@@ -70,16 +80,16 @@
     padding: 10px;
     direction: rtl;
     /* background-color: #51ff00; */
-    background-image: url('../../public/images/images.jpg');
+    /* background-image: url('../../public/images/images.jpg'); */
     overflow: auto;
     white-space: nowrap;
     display: flex;
     justify-content: right;
     width: 97%;
     border-radius: 15px;
-    border: 1px gray dashed;
+    /* border: 1px gray dashed; */
     padding: 10px;
-    margin: 0 1%;
+    margin: 0 2%;
 }
 
 .product{
@@ -90,6 +100,7 @@
     text-align: center;
     /* box-shadow: 5px 5px 5px 5px  rgb(0, 0, 0);  */
     width: 256px;
+    box-shadow: 1px 2px 10px;
 }
 
 .product img {
@@ -136,5 +147,10 @@
     background-color: rgb(154, 153, 153 , 0.7);
 }
 
+.icon{
+    position: relative;
+    top: 128px;
+    margin: 0 16px;
+}   
 
 </style>
